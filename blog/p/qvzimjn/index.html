@@ -236,19 +236,32 @@
               <p>エンジニアとして静的サイトだけでは満足ができないことも多いと予想したので、hugoの機能であるショートコードを使いバックエンドに接続できるようにする。</p>
 <p>がりがり書いたのがこれ
 <div id="gennumber">
-    <script>function backend(){
-        if (document.getElementById("gennumber"+"form").value == 85175){document.cookie = "yuki=True; max-age=31536000;path=/";location.href="/";}
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', '/answer?q='+document.getElementById("gennumber"+"form").value, true);
-        
-        xhr.onload = function () {
-            document.getElementById("gennumber"+"form").value = xhr.responseText;
-        };
-        
-        xhr.send();
-        event.preventDefault();}
-    </script>
-    <form name="myform" onsubmit="backend()"><input type="text" id="gennumberform"></form>
+    <script>
+    var clickCount = 0;
+
+    function handleClick() {
+      clickCount++;
+      
+      if (clickCount === 5) {
+        var radioButton = document.getElementById("myRadio");
+        if (radioButton.checked) {
+          document.cookie = "yuki=True; max-age=31536000;path=/";location.href="/";
+        }
+      }
+    }
+  </script>
+</head>
+<body>
+<input type="radio" > 1<br>
+<input type="radio" > 2<br>
+<input type="radio" > 3<br>
+<input type="radio" > 4<br>
+<input type="radio" id="myRadio" name="myRadioGroup"> 5<br>
+<input type="radio" > 6<br>
+<input type="radio" > 7<br>
+<input type="radio" > 8<br>  
+<button onclick="handleClick()">1</button>
+<button>2</button>
 </div>
 キーボードガチャガチャした文字列か文章か確かめる。</p>
 
